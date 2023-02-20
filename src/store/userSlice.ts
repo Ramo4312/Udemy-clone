@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IUser } from '../types/types'
+import { IMentor, IUser } from '../types/types'
 
 const userSlice = createSlice({
 	name: 'user',
@@ -31,7 +31,7 @@ const userSlice = createSlice({
 			state.isFetching = true
 			state.error = false
 		},
-		loginSuccess: (state, action: PayloadAction<object>) => {
+		loginSuccess: (state, action: PayloadAction<IUser>) => {
 			state.isFetching = false
 			state.currentUser = action.payload
 			state.error = false
@@ -54,6 +54,20 @@ const userSlice = createSlice({
 			state.error = true
 		},
 
+		registerAsMentorStart: state => {
+			state.isFetching = true
+			state.error = false
+		},
+		registerAsMentorSuccess: (state, action: PayloadAction<any>) => {
+			state.isFetching = false
+			state.currentUser = action.payload
+			state.error = false
+		},
+		registerAsMentorFailure: state => {
+			state.isFetching = false
+			state.error = true
+		},
+
 		logoutSuccess: state => {
 			state.currentUser = null
 		},
@@ -68,6 +82,9 @@ export const {
 	registerSuccess,
 	registerFailure,
 	logoutSuccess,
+	registerAsMentorStart,
+	registerAsMentorSuccess,
+	registerAsMentorFailure,
 } = userSlice.actions
 
 export default userSlice.reducer

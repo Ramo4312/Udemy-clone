@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { NavigateFunction } from 'react-router-dom'
-import { IUser } from '../types/types'
+import { IMentor, IUser } from '../types/types'
 import {
 	loginStart,
 	loginSuccess,
@@ -9,6 +9,9 @@ import {
 	registerSuccess,
 	registerFailure,
 	logoutSuccess,
+	registerAsMentorStart,
+	registerAsMentorSuccess,
+	registerAsMentorFailure,
 } from './userSlice'
 
 const BASE_URL = 'http://34.172.10.128/api/v1/'
@@ -30,6 +33,30 @@ export const register = async (
 		dispatch(registerSuccess())
 	} catch (err) {
 		dispatch(registerFailure())
+	}
+}
+
+export const registerAsMentor = async (
+	dispatch: Function,
+	user: IMentor,
+	navigate: NavigateFunction
+) => {
+	dispatch(registerAsMentorStart())
+	try {
+		const res = await publicReq.post(`account/register/mentor/`, user)
+		console.log(res.status, res.data)
+		let userInfo = {
+			...res.data,
+			email: user.email,
+			first_name: user.first_name,
+			last_name: user.last_name,
+		}
+		navigate('/personal')
+		dispatch(loginSuccess(userInfo))
+		dispatch(registerAsMentorSuccess(user))
+	} catch (err) {
+		console.log(err)
+		dispatch(registerAsMentorFailure())
 	}
 }
 

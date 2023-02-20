@@ -31,7 +31,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<nav className='w-full bg-[rgb(255,255,255,03)] backdrop-blur-[10px] shadow-lg h-20 flex justify-between px-16 items-center z-20 fixed top-0'>
+			<nav className='w-full bg-[rgb(255,255,255,03)] backdrop-blur-[10px] shadow-lg h-20 flex justify-between px-16 items-center z-1 fixed top-0'>
 				<img src={logo} alt='' width={120} className='cursor-pointer' />
 				<ul className='flex flex-row gap-x-5'>
 					{list.map((item: IList) => (
