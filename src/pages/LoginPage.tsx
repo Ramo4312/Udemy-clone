@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { login } from '../store/apiCalls'
 
 import { motion } from 'framer-motion'
+import { IUser } from '../types/types'
 
 const LoginPage = () => {
 	const [email, setEmail] = useState<string>('')
@@ -16,10 +17,11 @@ const LoginPage = () => {
 
 	function handleLogin() {
 		if (!email.trim() || !password.trim()) {
+			alert('Заполните все поля')
 			return
 		}
 
-		let user = {
+		let user: IUser = {
 			email,
 			password,
 		}
@@ -32,8 +34,11 @@ const LoginPage = () => {
 	}
 
 	return (
-		<div className='flex justify-center items-center py-32'>
-			<form
+		<div className='flex justify-center items-center py-32 mt-20'>
+			<motion.form
+				initial={{ scale: 0.5, opacity: 0 }}
+				animate={{ scale: 1, opacity: 1 }}
+				transition={{ duration: 0.5 }}
 				onSubmit={e => e.preventDefault()}
 				className='flex flex-col gap-y-4 '
 			>
@@ -61,6 +66,15 @@ const LoginPage = () => {
 					>
 						Вход
 					</motion.button>
+					<p>
+						Забыли пароль?{' '}
+						<span
+							className='text-[#5624d0] font-bold cursor-pointer'
+							onClick={() => navigate('/restore_password')}
+						>
+							Восстановить
+						</span>
+					</p>
 					<hr className='w-full border-0 h-[1.5px] bg-slate-500' />
 					<p className=''>
 						У вас еще нет учетной записи?{' '}
@@ -72,7 +86,7 @@ const LoginPage = () => {
 						</span>
 					</p>
 				</div>
-			</form>
+			</motion.form>
 		</div>
 	)
 }

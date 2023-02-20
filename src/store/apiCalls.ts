@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { NavigateFunction } from 'react-router-dom'
-import { IMentor, IUser } from '../types/types'
+import { IEmail, IMentor, INewUser, IUser } from '../types/types'
 import {
 	loginStart,
 	loginSuccess,
@@ -12,6 +12,12 @@ import {
 	registerAsMentorStart,
 	registerAsMentorSuccess,
 	registerAsMentorFailure,
+	forgotPasswordStart,
+	forgotPasswordSuccess,
+	forgotPasswordFailure,
+	restorePasswordStart,
+	restorePasswordSuccess,
+	restorePasswordFailure,
 } from './userSlice'
 
 const BASE_URL = 'http://34.172.10.128/api/v1/'
@@ -48,8 +54,7 @@ export const registerAsMentor = async (
 		let userInfo = {
 			...res.data,
 			email: user.email,
-			first_name: user.first_name,
-			last_name: user.last_name,
+			password: user.password,
 		}
 		navigate('/personal')
 		dispatch(loginSuccess(userInfo))
@@ -62,21 +67,48 @@ export const registerAsMentor = async (
 
 export const login = async (
 	dispatch: Function,
-	user: object,
+	user: IUser,
 	navigate: NavigateFunction
 ) => {
 	dispatch(loginStart())
 	try {
 		const res = await publicReq.post(`account/login/`, user)
-		let userInfo = {
-			...res.data,
-			...user,
-		}
-		console.log(res.status)
-		dispatch(loginSuccess(userInfo))
+		dispatch(loginSuccess({ ...res.data, ...user }))
 		navigate('/')
 	} catch (err) {
 		dispatch(loginFailure())
+	}
+}
+
+export const forgotPassword = async (dispatch: Function, email: IEmail) => {
+	dispatch(forgotPasswordStart())
+	try {
+		const res = await publicReq.post(`account/forgot_password/`, email)
+		console.log(res.status, res.data)
+		dispatch(forgotPasswordSuccess(email.email))
+	} catch (err) {
+		dispatch(forgotPasswordFailure())
+	}
+}
+
+export const restorePassword = async (
+	dispatch: Function,
+	user: INewUser,
+	navigate: NavigateFunction
+) => {
+	dispatch(restorePasswordStart())
+	try {
+		const res = await publicReq.post(`account/forgot_password_confirm/`, user)
+		console.log(res.status, res.data)
+		navigate('/login')
+		dispatch(restorePasswordSuccess(user))
+		// let newUser = {
+		// 	email: user.email,
+		// 	password: user.password,
+		// }
+		// login(dispatch, newUser, navigate)
+	} catch (err) {
+		dispatch(restorePasswordFailure())
 	}
 }
 

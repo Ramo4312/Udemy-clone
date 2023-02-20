@@ -1,39 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IMentor, IUser } from '../types/types'
+import { IMentor, IPayload, IUser } from '../types/types'
 
 const userSlice = createSlice({
 	name: 'user',
 	initialState: {
-		currentUser: <object | null>null,
+		currentUser: <any>null,
+		tokens: <any>null,
 		isFetching: <boolean>false,
 		error: <boolean>false,
+		isEmail: <string>'',
 	},
 	reducers: {
-		// addToTrashStart: state => {
-		// 	state.isFetching = true
-		// 	state.error = false
-		// },
-		// addToTrashSuccess: (state, action: PayloadAction<any>) => {
-		// 	state.isFetching = false
-		// 	state.completeTodos.splice(
-		// 		state.completeTodos.findIndex(item => item.id === action.payload.id),
-		// 		1
-		// 	)
-		// 	state.trash.push(action.payload)
-		// 	state.error = false
-		// },
-		// addToTrashFailure: state => {
-		// 	state.isFetching = false
-		// 	state.error = true
-		// },
-
 		loginStart: state => {
 			state.isFetching = true
 			state.error = false
 		},
-		loginSuccess: (state, action: PayloadAction<IUser>) => {
+		loginSuccess: (state, action: PayloadAction<IPayload>) => {
 			state.isFetching = false
-			state.currentUser = action.payload
+			state.tokens = {
+				access: action.payload.access,
+				refresh: action.payload.refresh,
+			}
+			state.currentUser = {
+				email: action.payload.email,
+				password: action.payload.password,
+			}
 			state.error = false
 		},
 		loginFailure: state => {
@@ -68,8 +59,38 @@ const userSlice = createSlice({
 			state.error = true
 		},
 
+		forgotPasswordStart: state => {
+			state.isFetching = true
+			state.error = false
+		},
+		forgotPasswordSuccess: (state, action: PayloadAction<string>) => {
+			state.isFetching = false
+			state.isEmail = action.payload
+			state.error = false
+		},
+		forgotPasswordFailure: state => {
+			state.isFetching = false
+			state.error = true
+		},
+
+		restorePasswordStart: state => {
+			state.isFetching = true
+			state.error = false
+		},
+		restorePasswordSuccess: (state, action: PayloadAction<IUser>) => {
+			state.isFetching = false
+			state.isEmail = ''
+			// state.currentUser = action.payload
+			state.error = false
+		},
+		restorePasswordFailure: state => {
+			state.isFetching = false
+			state.error = true
+		},
+
 		logoutSuccess: state => {
 			state.currentUser = null
+			state.tokens = null
 		},
 	},
 })
@@ -85,6 +106,12 @@ export const {
 	registerAsMentorStart,
 	registerAsMentorSuccess,
 	registerAsMentorFailure,
+	forgotPasswordStart,
+	forgotPasswordSuccess,
+	forgotPasswordFailure,
+	restorePasswordStart,
+	restorePasswordSuccess,
+	restorePasswordFailure,
 } = userSlice.actions
 
 export default userSlice.reducer

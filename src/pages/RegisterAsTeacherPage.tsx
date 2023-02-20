@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import RegisterAsTeacher from '../components/RegisterAsTeacher'
 
+import { motion } from 'framer-motion'
+
 const RegisterAsTeacherPage = () => {
 	const [card, setCard] = useState<string>('Создайте учебный план')
 	const [modal, setModal] = useState<boolean>(false)
@@ -165,12 +167,17 @@ const RegisterAsTeacherPage = () => {
 	return (
 		<>
 			<RegisterAsTeacher modal={modal} setModal={setModal} />
-			<div className='mt-[80px]'>
+			<div className='mt-20'>
 				<div
 					className='ud-app-loader ud-component--teach-page--app teach-page ud-app-loaded'
 					data-module-id='teach-page'
 				>
-					<div className='relative flex items-center justify-between'>
+					<motion.div
+						initial={{ scale: 1.2, opacity: 0.3 }}
+						animate={{ scale: 1, opacity: 1 }}
+						transition={{ duration: 0.6 }}
+						className='relative flex items-center justify-between'
+					>
 						<img
 							alt=''
 							width='1800'
@@ -192,7 +199,7 @@ const RegisterAsTeacherPage = () => {
 								<span>Начните действовать</span>
 							</button>
 						</div>
-					</div>
+					</motion.div>
 					<div className='flex flex-col items-center px-28 mb-12'>
 						<h2 className='text-5xl font-bold text-center w-[600px] font-["Times_New_Roman"] my-20'>
 							Для этого есть множество причин

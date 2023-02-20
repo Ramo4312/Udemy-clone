@@ -41,6 +41,7 @@ const RegisterPage = () => {
 			!password.trim() ||
 			!password2.trim()
 		) {
+			alert('Заполните все поля')
 			return
 		}
 
@@ -55,8 +56,11 @@ const RegisterPage = () => {
 	}
 
 	return (
-		<div className='flex justify-center items-center py-28'>
-			<form
+		<div className='flex justify-center items-center py-28 mt-10'>
+			<motion.form
+				initial={{ scale: 0.5, opacity: 0 }}
+				animate={{ scale: 1, opacity: 1 }}
+				transition={{ duration: 0.5 }}
 				onSubmit={e => e.preventDefault()}
 				className='flex flex-col gap-y-4 '
 			>
@@ -106,7 +110,17 @@ const RegisterPage = () => {
 					>
 						Регистрация
 					</motion.button>
-					<hr className='w-full border-0 h-[1.5px] bg-slate-500' />
+					{/* <hr className='w-full border-0 h-[1.5px] bg-slate-500' /> */}
+
+					<p>
+						Или зарегистрируйтесь как преподаватель{' '}
+						<span
+							onClick={() => navigate('mentor')}
+							className='text-[#5624d0] font-bold cursor-pointer ml-1'
+						>
+							Перейти
+						</span>
+					</p>
 
 					<hr className='w-full border-0 h-[1.5px] bg-slate-500' />
 					<p className=''>
@@ -119,7 +133,7 @@ const RegisterPage = () => {
 						</span>
 					</p>
 				</div>
-			</form>
+			</motion.form>
 		</div>
 	)
 }
