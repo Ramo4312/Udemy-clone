@@ -10,7 +10,7 @@ import {
 	REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import todoSlice from './todoSlice'
+import userSlice from './userSlice'
 
 const persistConfig = {
 	key: 'root',
@@ -19,7 +19,7 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-	todos: todoSlice,
+	user: userSlice,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
