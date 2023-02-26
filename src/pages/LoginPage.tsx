@@ -5,10 +5,12 @@ import { login } from '../store/apiCalls'
 
 import { motion } from 'framer-motion'
 import { IUser } from '../types/types'
+import Arrays from '../components/arrays/arrays'
 
 const LoginPage = () => {
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
+	const [hide, setHide] = useState<boolean>(true)
 
 	const navigate = useNavigate()
 
@@ -49,13 +51,20 @@ const LoginPage = () => {
 					className='auth-inputs'
 					placeholder='email'
 				/>
+				{/* <Arrays /> */}
 				<input
 					value={password}
 					onChange={e => setPassword(e.target.value)}
-					type='text'
+					type={hide ? 'password' : 'text'}
 					className='auth-inputs'
 					placeholder='password'
 				/>
+				<p
+					className='text-blue-600 text-right pr-3 cursor-pointer'
+					onClick={() => setHide(!hide)}
+				>
+					Показать пароль
+				</p>
 				<div className='flex flex-col mt-7 gap-y-4 items-center'>
 					<motion.button
 						initial={{ translateY: 0 }}
@@ -80,7 +89,7 @@ const LoginPage = () => {
 						У вас еще нет учетной записи?{' '}
 						<span
 							className='text-[#5624d0] font-bold cursor-pointer'
-							onClick={() => navigate('/register')}
+							onClick={() => navigate('/account/register')}
 						>
 							Регистрация
 						</span>

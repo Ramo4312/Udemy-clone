@@ -9,6 +9,7 @@ const PasswordRestorePAge = () => {
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
 	const [password_confirm, setPassword_confirm] = useState<string>('')
+	const [hide, setHide] = useState<boolean>(true)
 
 	const { isEmail, error } = useAppSelector(state => state.user)
 
@@ -89,17 +90,23 @@ const PasswordRestorePAge = () => {
 						<input
 							value={password}
 							onChange={e => setPassword(e.target.value)}
-							type='password'
+							type={hide ? 'password' : 'text'}
 							className='auth-inputs'
 							placeholder='password'
 						/>
 						<input
 							value={password_confirm}
 							onChange={e => setPassword_confirm(e.target.value)}
-							type='password'
+							type={hide ? 'password' : 'text'}
 							className='auth-inputs'
 							placeholder='password confirm'
 						/>
+						<p
+							className='text-blue-600 text-right pr-3 cursor-pointer'
+							onClick={() => setHide(!hide)}
+						>
+							Показать пароль
+						</p>
 						<button
 							onClick={handleRestore}
 							className='text-white font-bold py-2 bg-[#a435f0] hover:bg-[#6b0bab] hover:duration-200 duration-200 rounded-xl px-20 w-4/5 mx-auto'

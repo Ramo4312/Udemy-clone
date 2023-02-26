@@ -11,23 +11,25 @@ const RegisterPage = () => {
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
 	const [password2, setPassword2] = useState<string>('')
+	const [hide, setHide] = useState<boolean>(true)
 
-	const [passwordLevel, setPasswordLevel] = useState<string>('')
-	function checkPasswordLevel(value: string) {
-		setPassword(value)
+	// const [passwordLevel, setPasswordLevel] = useState<string>('')
 
-		if (value == '') {
-			setPasswordLevel('')
-		}
+	// function checkPasswordLevel(value: string) {
+	// 	setPassword(value)
 
-		if (value !== '') {
-			setPasswordLevel('ненадёжный')
-		} else if (!/\d/.test(value) || !/[a-zA-Z]/.test(value)) {
-			setPasswordLevel('средний')
-		} else {
-			setPasswordLevel('надёжный')
-		}
-	}
+	// 	if (value == '') {
+	// 		setPasswordLevel('')
+	// 	}
+
+	// 	if (value !== '') {
+	// 		setPasswordLevel('ненадёжный')
+	// 	} else if (!/\d/.test(value) || !/[a-zA-Z]/.test(value)) {
+	// 		setPasswordLevel('средний')
+	// 	} else {
+	// 		setPasswordLevel('надёжный')
+	// 	}
+	// }
 
 	const navigate = useNavigate()
 
@@ -88,7 +90,7 @@ const RegisterPage = () => {
 				<input
 					value={password}
 					onChange={e => setPassword(e.target.value)}
-					type='text'
+					type={hide ? 'password' : 'text'}
 					className='auth-inputs'
 					placeholder='password'
 				/>
@@ -96,10 +98,16 @@ const RegisterPage = () => {
 				<input
 					value={password2}
 					onChange={e => setPassword2(e.target.value)}
-					type='text'
+					type={hide ? 'password' : 'text'}
 					className='auth-inputs'
 					placeholder='password2'
 				/>
+				<p
+					className='text-blue-600 text-right pr-3 cursor-pointer'
+					onClick={() => setHide(!hide)}
+				>
+					Показать пароль
+				</p>
 				<div className='flex flex-col mt-7 gap-y-4 items-center'>
 					<motion.button
 						initial={{ translateY: 0 }}
@@ -127,7 +135,7 @@ const RegisterPage = () => {
 						Уже есть учетная запись?{' '}
 						<span
 							className='text-[#5624d0] font-bold cursor-pointer'
-							onClick={() => navigate('/login')}
+							onClick={() => navigate('/account/login')}
 						>
 							Вход
 						</span>

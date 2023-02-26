@@ -10,9 +10,13 @@ import RegisterPage from './pages/RegisterPage'
 
 export const MainRoutes = () => {
 	const routes = [
-		{ path: 'register', element: <RegisterPage />, id: 1 },
-		{ path: 'register/mentor', element: <RegisterAsTeacherPage />, id: 2 },
-		{ path: 'login', element: <LoginPage />, id: 3 },
+		{ path: 'account/register', element: <RegisterPage />, id: 1 },
+		{
+			path: 'account/register/mentor',
+			element: <RegisterAsTeacherPage />,
+			id: 2,
+		},
+		{ path: 'account/login', element: <LoginPage />, id: 3 },
 		{ path: 'personal', element: <PersonalAccountPage />, id: 4 },
 		{ path: 'restore_password', element: <PasswordRestorePAge />, id: 5 },
 	]

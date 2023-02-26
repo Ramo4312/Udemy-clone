@@ -66,7 +66,7 @@ const Navbar = () => {
 					) : (
 						<>
 							<motion.button
-								onClick={() => navigate('/login')}
+								onClick={() => navigate('/account/login')}
 								initial={{ translateY: 0 }}
 								whileHover={{ translateY: '-2px' }}
 								transition={{ duration: 0.2 }}
@@ -75,7 +75,7 @@ const Navbar = () => {
 								Войти
 							</motion.button>
 							<motion.button
-								onClick={() => navigate('/register')}
+								onClick={() => navigate('/account/register')}
 								initial={{ translateY: 0 }}
 								whileHover={{ translateY: '-2px' }}
 								transition={{ duration: 0.2 }}
