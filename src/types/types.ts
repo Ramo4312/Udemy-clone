@@ -30,3 +30,50 @@ export interface INewUser {
 	password: string
 	password_confirm: string
 }
+
+// export interface ILanguage {
+// 	text: string
+// }
+
+export interface INewPassword {
+	old_pass: string
+	password: string
+	password_confirm: string
+}
+
+export type TCourse = {
+	// id: number
+	title: string
+	sub_title: string
+	description: string
+	lang: string
+	sub_category: string
+	// main_image: string
+	// main_video: string
+	price: string
+	currency: string
+	// crated_at: string
+	// updated_at: string
+	category: string
+}
+
+export type ICourse = {
+	id: number
+	title: string
+	sub_title: string
+	description: string
+	lang: string
+	sub_category: string
+	main_image: string
+	main_video: string
+	price: string
+	currency: string
+	crated_at: string
+	updated_at: string
+	category: string
+}
+
+export interface ICategories {
+	id: number
+	title: string
+}

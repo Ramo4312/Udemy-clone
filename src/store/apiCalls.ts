@@ -1,6 +1,13 @@
 import axios from 'axios'
 import { NavigateFunction } from 'react-router-dom'
-import { IEmail, IMentor, INewUser, IUser } from '../types/types'
+import {
+	IEmail,
+	IMentor,
+	INewPassword,
+	INewUser,
+	IUser,
+	TCourse,
+} from '../types/types'
 import {
 	loginStart,
 	loginSuccess,
@@ -19,6 +26,21 @@ import {
 	restorePasswordSuccess,
 	restorePasswordFailure,
 } from './userSlice'
+
+import {
+	getStart,
+	getSuccess,
+	getFailed,
+	getOneStart,
+	getOneSuccess,
+	getOneFailed,
+	addStart,
+	addSuccess,
+	addFailed,
+	getCategoriesStart,
+	getCategoriesSuccess,
+	getCategoriesFailed,
+} from './courseSlice'
 
 const BASE_URL = 'http://34.172.10.128/api/v1/'
 
@@ -54,7 +76,7 @@ export const registerAsMentor = async (
 		let userInfo = {
 			...res.data,
 			email: user.email,
-			password: user.password,
+			// password: user.password,
 		}
 		navigate('/personal')
 		dispatch(loginSuccess(userInfo))
@@ -73,7 +95,7 @@ export const login = async (
 	dispatch(loginStart())
 	try {
 		const res = await publicReq.post(`account/login/`, user)
-		dispatch(loginSuccess({ ...res.data, ...user }))
+		dispatch(loginSuccess({ ...res.data, email: user.email }))
 		navigate('/')
 	} catch (err) {
 		dispatch(loginFailure())
@@ -114,4 +136,77 @@ export const restorePassword = async (
 
 export const logout = (dispatch: Function) => {
 	dispatch(logoutSuccess())
+}
+
+export const changePassword = async (
+	newPassword: INewPassword,
+	token: string
+) => {
+	try {
+		let Authorization = `Bearer ${token}`
+
+		const config = {
+			headers: {
+				Authorization,
+			},
+		}
+
+		let res = await publicReq.post(
+			`account/change_password/`,
+			newPassword,
+			config
+		)
+
+		console.log(res.data, res.status)
+	} catch (err) {
+		console.log(err)
+	}
+}
+
+export const getCourses = async (dispatch: Function) => {
+	dispatch(getStart())
+	try {
+		const res = await publicReq(`courses/`)
+		dispatch(getSuccess(res.data.results))
+		console.log('get', res.status)
+	} catch (err) {
+		dispatch(getFailed())
+		console.log(err)
+	}
+}
+
+export const getOneCourses = async (dispatch: Function, id: number) => {
+	dispatch(getOneStart())
+	try {
+		const res = await publicReq(`courses/${id}/`)
+		dispatch(getOneSuccess(res.data))
+		console.log(res.data)
+	} catch (err) {
+		dispatch(getOneFailed())
+		console.log(err)
+	}
+}
+
+export const addCourse = async (dispatch: Function, course: TCourse) => {
+	dispatch(addStart())
+	try {
+		const res = await publicReq.post(`courses/`, course)
+		dispatch(addSuccess(res.data))
+		console.log(res)
+	} catch (err) {
+		dispatch(addFailed())
+		console.log(err)
+	}
+}
+
+export const getCategories = async (dispatch: Function) => {
+	dispatch(getCategoriesStart())
+	try {
+		const res = await publicReq(`categories/`)
+		dispatch(getCategoriesSuccess(res.data.results))
+		console.log('get', res.status)
+	} catch (err) {
+		dispatch(getCategoriesFailed())
+		console.log(err)
+	}
 }

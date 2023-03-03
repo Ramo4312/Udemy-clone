@@ -5,7 +5,6 @@ import { login } from '../store/apiCalls'
 
 import { motion } from 'framer-motion'
 import { IUser } from '../types/types'
-import Arrays from '../components/arrays/arrays'
 
 const LoginPage = () => {
 	const [email, setEmail] = useState<string>('')

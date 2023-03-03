@@ -6,9 +6,9 @@ const userSlice = createSlice({
 	initialState: {
 		currentUser: <any>null,
 		tokens: <any>null,
+		isEmail: <string>'',
 		isFetching: <boolean>false,
 		error: <boolean>false,
-		isEmail: <string>'',
 	},
 	reducers: {
 		loginStart: state => {

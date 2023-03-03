@@ -204,7 +204,7 @@ const RegisterAsTeacherPage = () => {
 						<h2 className='text-5xl font-bold text-center w-[600px] font-["Times_New_Roman"] my-20'>
 							Для этого есть множество причин
 						</h2>
-						<div className='why-udemy--value-props--31Fzn'>
+						<div className=''>
 							<div className='flex justify-between'>
 								<div className='flex flex-col items-center'>
 									<div className=''>
@@ -225,7 +225,7 @@ const RegisterAsTeacherPage = () => {
 									</div>
 								</div>
 								<div className='flex flex-col items-center'>
-									<div className='value-props--graphic--MCrlz'>
+									<div className=''>
 										<img
 											alt=''
 											width='100'
@@ -244,7 +244,7 @@ const RegisterAsTeacherPage = () => {
 									</div>
 								</div>
 								<div className='flex flex-col items-center'>
-									<div className='value-props--graphic--MCrlz'>
+									<div className=''>
 										<img
 											alt=''
 											width='100'
@@ -323,250 +323,9 @@ const RegisterAsTeacherPage = () => {
 									{item.card}
 								</div>
 							))}
-							{/* <div
-							id='tabs--3-content-0'
-							role='tabpanel'
-							className='ud-tab-content tabs--tab-content--MLK3S tabs--active--2zzvm'
-							tabIndex={0}
-							data-purpose='tab-container'
-							aria-labelledby='tabs--3-tab-0'
-						>
-							<div className='how-it-works--tab-content--yjVyA'>
-								<div className='how-it-works--text--13tNL'>
-									<p className='ud-text-md teach-page__margin-center'>
-										Положитесь на свой интерес и знания. Выберите подходящую
-										тему с помощью инструмента аналитики торговой площадки.
-									</p>
-									<p className='ud-text-md teach-page__margin-center'>
-										Ваш стиль преподавания&nbsp;— то, что вы в него
-										вкладываете,&nbsp;— зависит только от вас.
-									</p>
-									<h3 className='ud-heading-lg how-it-works--help-text--2g-ce'>
-										Нужна помощь?
-									</h3>
-									<p className='ud-text-md teach-page__margin-center'>
-										Мы предоставляем множество ресурсов для создания вашего
-										первого курса. Наши страницы с панелью преподавателя и
-										учебным планом курса помогут вам организовать процесс.
-									</p>
-								</div>
-								<img
-									alt=''
-									width='480'
-									height='480'
-									src='https://s.udemycdn.com/teaching/plan-your-curriculum-v3.jpg'
-									srcSet='https://s.udemycdn.com/teaching/plan-your-curriculum-v3.jpg 1x, https://s.udemycdn.com/teaching/plan-your-curriculum-2x-v3.jpg 2x'
-								/>
-							</div>
-						</div>
-						<div
-							id='tabs--3-content-1'
-							role='tabpanel'
-							className='ud-tab-content tabs--tab-content--MLK3S'
-							tabIndex={-1}
-							data-purpose='tab-container'
-							aria-labelledby='tabs--3-tab-1'
-						>
-							<div className='how-it-works--tab-content--yjVyA'>
-								<div className='how-it-works--text--13tNL'>
-									<p className='ud-text-md teach-page__margin-center'>
-										Используйте простые устройства&nbsp;― смартфон или цифровую
-										зеркальную камеру, а также хороший микрофон&nbsp;― этого
-										достаточно.
-									</p>
-									<p className='ud-text-md teach-page__margin-center'>
-										Если вы не любите быть в кадре, просто ведите запись экрана.
-										В обоих случаях рекомендуемая длина видео для платных курсов
-										составляет от двух часов.
-									</p>
-									<h3 className='ud-heading-lg how-it-works--help-text--2g-ce'>
-										Нужна помощь?
-									</h3>
-									<p
-										className='ud-text-md ud-text-with-links teach-page__margin-center'
-										data-purpose='safely-set-inner-html:how-it-works:support'
-									>
-										Наша команда поддержки всегда готова вам помочь и
-										предоставить отзыв о вашем тестовом видео.
-									</p>
-								</div>
-								<img
-									alt=''
-									width='480'
-									height='480'
-									src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480"%3E%3C/svg%3E'
-								/>
-							</div>
-						</div>
-						<div
-							id='tabs--3-content-2'
-							role='tabpanel'
-							className='ud-tab-content tabs--tab-content--MLK3S'
-							tabIndex={-1}
-							data-purpose='tab-container'
-							aria-labelledby='tabs--3-tab-2'
-						>
-							<div className='how-it-works--tab-content--yjVyA'>
-								<div className='how-it-works--text--13tNL'>
-									<p className='ud-text-md teach-page__margin-center'>
-										Получите свои первые оценки и отзывы, поделившись курсом в
-										социальных сетях и в своей профессиональной среде.
-									</p>
-									<p className='ud-text-md teach-page__margin-center'>
-										Ваш курс будет также опубликован на нашей торговой площадке,
-										где за каждую регистрацию на платный курс вы будете получать
-										оплату.
-									</p>
-									<h3 className='ud-heading-lg how-it-works--help-text--2g-ce'>
-										Нужна помощь?
-									</h3>
-									<p className='ud-text-md teach-page__margin-center'>
-										Наш инструмент для создания купонов позволит вам предлагать
-										студентам поощрения за регистрацию, а участие в наших
-										глобальных акциях поможет привлечь ещё больше студентов. Ещё
-										больше возможностей будет доступно для курсов, выбранных для
-										подписки Udemy Business.
-									</p>
-								</div>
-								<img
-									alt=''
-									width='480'
-									height='480'
-									src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480"%3E%3C/svg%3E'
-								/>
-							</div>
-						</div> */}
 						</div>
 					</div>
-					{/* <div className='teach-page__pale-container from-instructors--container--3ebVm'>
-					<div className='teach-page__margin-center from-instructors--carousel-container--1AOMr'>
-						<div className='carousel--container--WjDNA'>
-							<div
-								className='from-instructors--carousel--pC9be carousel--scroll-port--G8nlm carousel--grid--21hQz carousel--scroll-lock--31wDL'
-								data-purpose='scroll-port'
-								id='scroll-port--4'
-								aria-live='polite'
-							>
-								<div data-index='0' className='carousel--scroll-item--1cqyU'>
-									<div className='from-instructors--inner-container--3A-hj'>
-										<img
-											alt=''
-											width='400'
-											height='400'
-											className='teach-page__margin-center from-instructors--img--14ohb'
-											src='https://s.udemycdn.com/teaching/instructors/en/frank-1x-v2.jpg'
-											srcSet='https://s.udemycdn.com/teaching/instructors/en/frank-1x-v2.jpg 1x, https://s.udemycdn.com/teaching/instructors/en/frank-2x-v2.jpg 2x'
-										/>
-										<div className='from-instructors--text--3Iz7J'>
-											<div>
-												<p className='ud-text-lg from-instructors--quote--1tMSP'>
-													«Каждое утро я просыпаюсь с чувством гордости, зная,
-													что моя работа помогает людям из разных уголков
-													планеты развивать профессиональные навыки и создавать
-													невероятные вещи. И хотя работа преподавателя на
-													полной ставке бывает тяжелой, она всё ещё позволяет
-													вам работать когда, где и как того хотите вы сами».
-												</p>
-												<div className='ud-heading-md from-instructors--title--2wCfM'>
-													Frank Kane
-												</div>
-												<div className='from-instructors--subtitle--3-zFG'>
-													Обработка данных и сертификация ИТ
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div data-index='1' className='carousel--scroll-item--1cqyU'>
-									<div className='from-instructors--inner-container--3A-hj'>
-										<img
-											alt=''
-											width='400'
-											height='400'
-											className='teach-page__margin-center from-instructors--img--14ohb'
-											src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3C/svg%3E'
-										/>
-										<div className='from-instructors--text--3Iz7J'>
-											<div>
-												<p className='ud-text-lg from-instructors--quote--1tMSP'>
-													«Платформа Udemy изменила мою жизнь. Она позволяет мне
-													заниматься любимым делом и работать преподавателем. Я
-													обожаю наблюдать за успехами своих студентов. Всегда
-													приятно услышать от студентов, что на моих курсах они
-													узнают больше, чем во время профильного обучения по
-													специальности».
-												</p>
-												<div className='ud-heading-md from-instructors--title--2wCfM'>
-													Paulo Dichone
-												</div>
-												<div className='from-instructors--subtitle--3-zFG'>
-													Разработчик (специализация&nbsp;― Android)
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div data-index='2' className='carousel--scroll-item--1cqyU'>
-									<div className='from-instructors--inner-container--3A-hj'>
-										<img
-											alt=''
-											width='400'
-											height='400'
-											className='teach-page__margin-center from-instructors--img--14ohb'
-											src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3C/svg%3E'
-										/>
-										<div className='from-instructors--text--3Iz7J'>
-											<div>
-												<p className='ud-text-lg from-instructors--quote--1tMSP'>
-													«Преподавание на платформе Udemy обеспечило меня двумя
-													важными составляющими: возможностью привлечь столько
-													учащихся, сколько мне никогда не удалось бы привлечь
-													самостоятельно, а также стабильным источником
-													дополнительного дохода».
-												</p>
-												<div className='ud-heading-md from-instructors--title--2wCfM'>
-													Deborah Grayson Riege
-												</div>
-												<div className='from-instructors--subtitle--3-zFG'>
-													Лидерство, навыки общения
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<button
-								type='button'
-								className='ud-btn ud-btn-large ud-btn-black-solid ud-btn-round ud-heading-md ud-btn-disabled ud-btn-icon ud-btn-icon-large ud-btn-icon-round ud-carousel-pager-button ud-carousel-pager-button-prev from-instructors--carousel-pager-button--3S7rp carousel--button--2RW_q carousel--prev-button--6BbhZ'
-								data-pager-type='prev'
-								tabIndex={-1}
-							>
-								<svg
-									aria-label='Предыдущий'
-									role='img'
-									focusable='false'
-									className='ud-icon ud-icon-large'
-								>
-									<use xlinkHref='#icon-previous'></use>
-								</svg>
-							</button>
-							<button
-								type='button'
-								className='ud-btn ud-btn-large ud-btn-black-solid ud-btn-round ud-heading-md ud-btn-icon ud-btn-icon-large ud-btn-icon-round ud-carousel-pager-button ud-carousel-pager-button-next from-instructors--carousel-pager-button--3S7rp carousel--button--2RW_q carousel--next-button--1ZDLp'
-								data-pager-type='next'
-							>
-								<svg
-									aria-label='Далее'
-									role='img'
-									focusable='false'
-									className='ud-icon ud-icon-large'
-								>
-									<use xlinkHref='#icon-next'></use>
-								</svg>
-							</button>
-						</div>
-					</div>
-				</div> */}
+
 					<div className='my-56'>
 						<div className='flex justify-between items-center'>
 							<img
@@ -590,17 +349,6 @@ const RegisterAsTeacherPage = () => {
 										опытных преподавателей в нашем{' '}
 										<strong>интернет-сообществе</strong>.
 									</p>
-									{/* <a
-									href='/udemy-teach-hub/teaching_on_udemy/?use-localization-prefix=1'
-									target='_blank'
-									rel='noopener noreferrer'
-									className='ud-btn ud-btn-large ud-btn-ghost ud-heading-md ud-link-underline here-to-help--cta--1DDFs'
-								>
-									<span>
-										Хотите узнать подробности, прежде чем приступить? Узнать
-										больше.
-									</span>
-								</a> */}
 								</div>
 							</div>
 							<img

@@ -6,6 +6,10 @@
 	display: none;
 }
 
+input:focus {
+	outline: none;
+}
+
 @layer components {
 	.auth-inputs {
 		@apply placeholder:capitalize placeholder:text-black border-2 border-black rounded-lg py-2 px-12 text-center;
@@ -25,5 +29,13 @@
 
 	.info-card > div > h3 {
 		@apply font-bold;
+	}
+
+	.select {
+		@apply border-2 border-black rounded-lg py-2 text-center;
+	}
+
+	.option:hover {
+		background-color: black !important;
 	}
 }
